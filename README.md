@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# 🔥 Burn-on-Read: Secure Message Sharing
+A lightweight, secure, and privacy-focused web application that allows users to share self-destructing messages. Once a message is viewed and the tab is closed, it is permanently deleted from the database.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🚀 Features
+Self-Destructing Links: Messages are stored in Firebase Realtime Database and deleted immediately after use.
 
-Currently, two official plugins are available:
+Tab-Close Protection: Uses beforeunload events and the keepalive Fetch API to ensure data is wiped even if the user closes the window.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Dynamic Input: Auto-expanding textarea for a smooth message-writing experience.
 
-## React Compiler
+No Persistence: Designed with a "Zero-Knowledge" mindset—once it's gone, it's gone forever.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 🛠️ Tech Stack
+Frontend: React with Vite
 
-## Expanding the ESLint configuration
+Language: TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Database: Firebase Realtime Database
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Deployment: Vercel
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Package Manager: pnpm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+#⚙️ Local Setup
+Clone the repository:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Bash
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+git clone https://github.com/your-username/burn-on-read.git
+cd burn-on-read
+Install dependencies:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bash
+
+pnpm install
+Configure Environment Variables: Create a .env file in the root directory and add your Firebase credentials:
+
+Code snippet
+
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_PROJECT_URL=https://your_project-default-rtdb.firebaseio.com/messages
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+Run the development server:
+
+Bash
+
+pnpm dev
+# 🤝 Open Source Contribution
+We welcome contributions! Whether you're fixing a bug, adding a feature, or improving documentation, your help is appreciated.
+
+How to Contribute
+Fork the Project: Click the 'Fork' button at the top of the repository.
+
+Create a Branch:
+
+Bash
+
+git checkout -b feature/AmazingFeature
+Commit Your Changes:
+
+Use descriptive commit messages.
+
+Ensure you use import type for TypeScript types to comply with verbatimModuleSyntax.
+
+Push to the Branch:
+
+Bash
+
+git push origin feature/AmazingFeature
+Open a Pull Request: Describe your changes and link any related issues.
+
+Areas for Improvement
+Encryption: Implement client-side AES encryption so even the database owner cannot read messages.
+
+Expiration Timers: Add an option to delete messages after a specific time (e.g., 1 hour) even if not read.
+
+UI/UX: Transition from inline styles to CSS Modules or Tailwind CSS.
+
+# 🛡️ Security Note
+This app is intended for transient data sharing. While it deletes data on read, the security of the message during transit depends on HTTPS and the secrecy of the unique URL generated.
+
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
