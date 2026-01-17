@@ -1,4 +1,5 @@
-import { useState, FormEvent, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+import type { FormEvent } from "react";
 import { ref, push, set } from "firebase/database";
 import { db } from "../utils/firebase.ts";
 
