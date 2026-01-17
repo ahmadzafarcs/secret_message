@@ -1,4 +1,4 @@
-# 🔥 Burn-on-Read: Secure Message Sharing
+# 🔥 Secret Messages: Secure Message Sharing
 A lightweight, secure, and privacy-focused web application that allows users to share self-destructing messages. Once a message is viewed and the tab is closed, it is permanently deleted from the database.
 
 # 🚀 Features
@@ -21,18 +21,20 @@ Deployment: Vercel
 
 Package Manager: pnpm
 
-#⚙️ Local Setup
+# ⚙️ Local Setup
 Clone the repository:
 
 Bash
-
+```
 git clone https://github.com/your-username/burn-on-read.git
 cd burn-on-read
+```
 Install dependencies:
 
 Bash
-
+```
 pnpm install
+```
 Configure Environment Variables: Create a .env file in the root directory and add your Firebase credentials:
 
 Code snippet
@@ -47,8 +49,9 @@ VITE_FIREBASE_APP_ID=your_app_id
 Run the development server:
 
 Bash
-
+```
 pnpm dev
+```
 # 🤝 Open Source Contribution
 We welcome contributions! Whether you're fixing a bug, adding a feature, or improving documentation, your help is appreciated.
 
@@ -58,8 +61,9 @@ Fork the Project: Click the 'Fork' button at the top of the repository.
 Create a Branch:
 
 Bash
-
+```
 git checkout -b feature/AmazingFeature
+```
 Commit Your Changes:
 
 Use descriptive commit messages.
@@ -69,8 +73,9 @@ Ensure you use import type for TypeScript types to comply with verbatimModuleSyn
 Push to the Branch:
 
 Bash
-
+```
 git push origin feature/AmazingFeature
+```
 Open a Pull Request: Describe your changes and link any related issues.
 
 Areas for Improvement
